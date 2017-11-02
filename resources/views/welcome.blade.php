@@ -21,14 +21,20 @@
         http.onreadystatechange = function () {
             if (
                 http.readyState == 4) {
-// Se ha recibido la respuesta.
+        // Se ha recibido la respuesta.
                 if (http.status == 200) {
-// Aquí escribiremos lo que queremos que
-// se ejecute tras recibir la respuesta
+        // Aquí escribiremos lo que queremos que
+        // se ejecute tras recibir la respuesta
                     var datosDoc = http.responseText;
-                    alert(datosDoc);
+                    //alert(datosDoc);
+                    var par = document.getElementById('parrafito');
+                    par.textContent = datosDoc;
+
+                    // version appendChild
+                    //var contenido = document.createTextNode(datosDoc);
+                    //par.appendChild(contenido);
                 } else {
-// Ha ocurrido un error
+        // Ha ocurrido un error
                     alert("Error:" + http.statusText);
                 }
             }
@@ -45,6 +51,7 @@
     <input onclick="llamarAjax()" value="click"/>
 </form>
 
+<p id="parrafito"></p>
 
 
 </body>
